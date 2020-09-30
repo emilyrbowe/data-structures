@@ -15,7 +15,7 @@ In this assignment, I was asked create a table within a Postgres database on con
 ------
 
 ## Starter Code
-We were given starter code for the
+We were given starter code for the three portions of the assignment that involved code.
 
 ### Part 2: Create a table(s) in your database in `wa04-a-init.js`
 ```javascript
@@ -132,16 +132,30 @@ client.query(query, (err, res) => {
 To begin, I started be exploring the API's response to testing data, knowing that parsing this data would be the first step towards extracting the latitude and longitude from the response.
 
 ### Part 1: Plan
+My rough sketch of the eventual database structure is shown below:
 
+![](AA_DB_structure.png)
+
+I started by grouping the information that would go with the meeting only, as opposed to the address. From looking at what would be part of a "meeting" table, I started to see the need for a tabl each for the meeting information, address information, meeting type, day, special interests of the meeting, zone, and (if the project were expanded to include information outside of Manhattan), the borough information.
 
 ### Part 2: Create a table(s) in your database
+To begin, I started by updating my database credentials in the code by replacing the credentials in the starter code with the following:
 
+```javascript
+let db_credentials = {
+    host: 'data-structures.cg1ulimbkyfh.us-east-1.rds.amazonaws.com',
+    database: 'aa',
+    user: 'ds_aa',
+    password: process.env.AWSRDS_PW,
+    port: 5432,
+}
+```
 
 ### Part 3: Populate your database
 
 
 ### Part 4: Check Your Work
-
+I added the proper database credentials into the `wa04-c-reort.js` file and was able to produce the following result in the terminal, showing that I was able to populate the database correctly. 
 
 ```javascript
 vocstartsoft:~/environment $ node wa04-c-report.js
