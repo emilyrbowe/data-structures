@@ -6,11 +6,11 @@
 In this assignment, I was asked create a table within a Postgres database on containing address and latitude and longitude of AA meetings within the meeting zone that I have been working on for the past assignments.
 
 ------
-
 ## Instructions
-
-
-
+1. Create a PostgreSQL DB Instance in AWS
+2. Set up a way to access your instance
+3. Plan out a database structure
+4. Add data from JSON file into the DB
 
 ------
 
@@ -139,7 +139,7 @@ My rough sketch of the eventual database structure is shown below:
 I started by grouping the information that would go with the meeting only, as opposed to the address. From looking at what would be part of a "meeting" table, I started to see the need for a tabl each for the meeting information, address information, meeting type, day, special interests of the meeting, zone, and (if the project were expanded to include information outside of Manhattan), the borough information.
 
 ### Part 2: Create a table(s) in your database
-To begin, I started by updating my database credentials in the code by replacing the credentials in the starter code with the following:
+To begin, I started by updating my database credentials into the `wa04-a-init.js` by replacing the credentials in the starter code with the following:
 
 ```javascript
 let db_credentials = {
@@ -150,12 +150,44 @@ let db_credentials = {
     port: 5432,
 }
 ```
+From there, I was able to connect to the database and create a table. I also practiced deleting a table, which came in handy when I needed to start over.
 
 ### Part 3: Populate your database
+I began by updating the database credentials into the `wa04-b-populate.js`as I did in Part 2.
 
+I then needed to change the hardcoded JSON data in the starter code to something that could pull in the address file from Week 3's assignment. In order to do that, I used code that I used in Week 3 to load the JSON file.
+
+```javascript
+let addressesForDb = JSON.parse(fs.readFileSync(
+  'data/m08_addresses_latlong.json', 'utf8'));
+```
+
+This code uses the `fs` module for node, so I also needed to add to the list of required packages at the start of the file:
+
+```javascript
+const {
+  Client
+    } = require('pg'),
+      dotenv = require('dotenv'),
+      async = require('async'),
+      fs = require('fs');
+```
+
+When I first tried to run this, I ran into an error because I also hadn't changed the text in the query string so that it referred to my JSON file specifically. I needed to access the `streetAddress`, `latLong.lat`, and `latLong.long` values in the JSON file. I updated the query string with the following:
+
+```javascript
+let query = {
+  text: "INSERT INTO aalocations VALUES($1, $2, $3)",
+  values: [value.streetAddress, value.latLong.lat, value.latLong.long]
+};
+```
 
 ### Part 4: Check Your Work
-I added the proper database credentials into the `wa04-c-reort.js` file and was able to produce the following result in the terminal, showing that I was able to populate the database correctly. 
+To start, I added the proper database credentials into the `wa04-c-report.js` file.
+
+When I first ran the report, I realized that I had inadvertently added multiple versions of the address data during my testing/debugging of `wa04-b-populate.js`. In order to fix this, I went back to `wa04-a-init.js` and used the `DROP TABLE` command to delete the `aalocations` table and then subsequently created a new `aalocations` table. I then re-ran `wa04-b-populate.js` to populate the data correctly.
+
+From this, I was able to produce the following result in the terminal, showing that I was able to add the proper data to the table.
 
 ```javascript
 vocstartsoft:~/environment $ node wa04-c-report.js
