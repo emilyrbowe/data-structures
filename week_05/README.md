@@ -75,14 +75,9 @@ To begin, I started be exploring the API's response to testing data, knowing tha
 ### Part 1: Plan
 My sketch for my NoSQL database is shown below:
 
-![]()
+![](table_structure.jpg)
 
-
-
-### Part 2: Create a table(s) in your database
-
-
-### Part 3: Populate your database
+### Part 2: Create some data for the table in your database
 I began by create the `BlogEntry` class that I knew I would need in order to match my plan for the database.
 
 ```javascript
@@ -146,6 +141,8 @@ blogEntries.push(new BlogEntry(1, 'October 6, 2020', true, 4, ["Blake", "Amy"], 
 blogEntries.push(new BlogEntry(2, 'October 7, 2020', true, 3, ["Shannon"], 2, 4, "Curious", "Did a lot of random googling today and watched part of a recording of a SAWS board meeting, which was fascinating. Talked to Shannon, which was also incredibly clarifying."));
 
 ```
+
+### Part 3: Populate your database
 
 Using the starter code, I was able to add a single blog post. I knew that I would actually have to iterate over the `blogEntries` array. In order to do that, I added the `async` module as a required npm package and was able to modify the starter code to push the value into the `processblog` table in DynamoDB.
 
