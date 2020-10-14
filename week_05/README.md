@@ -6,11 +6,6 @@
 In this assignment, I was asked to create a database using Amazon DynamoD and then create a table structure and write data to this database.
 
 ------
-## Instructions
-1.
-
-
-------
 
 ## Starter Code
 We were given starter code for the assignment, which is shown below.
