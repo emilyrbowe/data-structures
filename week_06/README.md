@@ -359,7 +359,7 @@ async.eachSeries(blogEntries, function(value, callback) {
 });
 ```
 
-I then attempted to get a query working, using the other starter code given to us. At present, I am getting an error saying `Query key condition not supported`, but my code is below:
+I then attempted to get a query working, using the other starter code given to us. I was getting an error saying `Query key condition not supported`, but I then simplified my query to only relate to the primary key, which worked. This exercise showed me that I will need to recreate my database with a different primary key value in order to get the results I want where I'm able to query and filter by other important fields.
 
 ```javascript
 // npm install aws-sdk
@@ -370,29 +370,49 @@ AWS.config.region = "us-east-1";
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-   TableName : "processblog",
-   // KeyConditionExpression: "pk >= :primaryKeyVal and thesisWork = :workBoolean and feeling_1_5 > :minFeeling", // the query expression
-    KeyConditionExpression: "pk = :primaryKeyVal and thesisWork = :workBoolean", // the query expression
-   // ExpressionAttributeNames: { // name substitution, used for reserved words in DynamoDB
-   // },
-   ExpressionAttributeValues: { // the query values
-       ":primaryKeyVal" : {"S": "0"},
-       ":workBoolean": {"B": "true"},
-       // ":minFeeling": {"N": "3"}
-   }
+  TableName: "processblog",
+  // KeyConditionExpression: "pk >= :primaryKeyVal and thesisWork = :workBoolean and feeling_1_5 > :minFeeling", // the query expression
+  KeyConditionExpression: "pk = :primaryKeyVal", // the query expression
+  // ExpressionAttributeNames: { // name substitution, used for reserved words in DynamoDB
+  // },
+  ExpressionAttributeValues: { // the query values
+    ":primaryKeyVal": {
+      "S": "7"
+    },
+  }
 };
 
 dynamodb.query(params, function(err, data) {
-   if (err) {
-       console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
-   } else {
-       console.log("Query succeeded.");
-       data.Items.forEach(function(item) {
-           console.log("***** ***** ***** ***** ***** \n", item);
-       });
-   }
+  if (err) {
+    console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+  } else {
+    console.log("Query succeeded.");
+    data.Items.forEach(function(item) {
+      console.log("***** ***** ***** ***** ***** \n", item);
+    });
+  }
 });
+
 ```
 
+This was the console result when I ran the code above.
 
-<!-- ### Success! 👾 -->
+```javascript
+vocstartsoft:~/environment $ node wa06-diary-b-query.js
+Query succeeded.
+***** ***** ***** ***** *****
+ { date: { S: 'Mon Oct 12 2020' },
+  feeling_word: { S: 'Less crazy' },
+  poms: { N: '4' },
+  notes:
+   { S:
+      'Bill had us write the two sentence version of our thesis topic out in class and review them as a group. It was a helpful excercise to have to distill it down.' },
+  month: { N: '9' },
+  feeling_1_5: { N: '3' },
+  thesisWork: { BOOL: true },
+  thesisTalk: { SS: [ 'Bill' ] },
+  pk: { S: '7' },
+  focus_1_5: { N: '3' } }
+  ```
+
+### Success! 👾
