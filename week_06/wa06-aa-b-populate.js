@@ -16,7 +16,7 @@ let db_credentials = {
 let meetingInfo = [];
 
 //Lines 17-24 from https://www.programminghunk.com/2020/07/reading-and-parsing-csv-data-with-nodejs.html
-meetingInfo = fs.createReadStream('data/aa_sample.csv')
+fs.createReadStream('data/aa_sample.csv')
   .pipe(csvParser())
   .on('data', (line) => {
     meetingInfo.push(line);
@@ -24,9 +24,8 @@ meetingInfo = fs.createReadStream('data/aa_sample.csv')
   })
   .on('end', () => {
     console.log('CSV data displayed successfully');
-  });
-
-async.eachSeries(meetingInfo, function(value, callback) {
+    
+    async.eachSeries(meetingInfo, function(value, callback) {
     let client = new Client(db_credentials);
     client.connect();
 
@@ -45,3 +44,4 @@ async.eachSeries(meetingInfo, function(value, callback) {
     });
     setTimeout(callback, 1000);
 });
+  });
