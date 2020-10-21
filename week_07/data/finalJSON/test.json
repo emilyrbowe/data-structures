@@ -1,0 +1,55 @@
+[{
+  "mtgName": "A DESIGN FOR LIVING - ",
+  "mtgDay": "Tuesday",
+  "mtgStart": "7:00 AM",
+  "mtgEnd": "8:00 AM",
+  "mtgType": "B = Beginners meeting",
+  "mtgPlace": "St Andrews Church",
+  "mtgPlaceNotes": "@Duane and Centre behind Federal courthouse enter thru driveway behind Church No meetings on Holidays",
+  "mtgZone": "01",
+  "mtgAddress": {
+    "address": "20 Cardinal Hayes Place, New York, NY",
+    "details": "Rectory Basement"
+  },
+  "mtgADA": false,
+  "latLng": {
+    "lat": "40.6639307188879",
+    "lng": "-73.9382749875207"
+  }
+}, {
+  "mtgName": "CHAMBERS STREET - A BRIDGE BACK - Chambers Street - A Bridge Back",
+  "mtgDay": "Friday",
+  "mtgStart": "12:15 PM",
+  "mtgEnd": "1:15 PM",
+  "mtgType": "BB = Big Book meeting",
+  "mtgPlace": "St. Andrew&apos;s Church",
+  "mtgPlaceNotes": "No meetings on Holidays. **LOCATION SUBJECT TO CHANGE- Call Inter-Group",
+  "mtgZone": "01",
+  "mtgAddress": {
+    "address": "20 Cardinal Hayes Place, New York, NY",
+    "details": "Enter through driveway behind Church."
+  },
+  "mtgADA": false,
+  "latLng": {
+    "lat": "40.6639307188879",
+    "lng": "-73.9382749875207"
+  }
+}, {
+  "mtgName": "CHINATOWN - Chinatown",
+  "mtgDay": "Tuesday",
+  "mtgStart": "6:30 PM",
+  "mtgEnd": "7:30 PM",
+  "mtgType": "C = Closed Discussion meeting",
+  "mtgPlace": "Church of the Transfiguration",
+  "mtgPlaceNotes": "",
+  "mtgZone": "01",
+  "mtgAddress": {
+    "address": "29 Mott Street, New York, NY",
+    "details": "Basement"
+  },
+  "mtgADA": false,
+  "latLng": {
+    "lat": "40.6639307188879",
+    "lng": "-73.9382749875207"
+  }
+}]

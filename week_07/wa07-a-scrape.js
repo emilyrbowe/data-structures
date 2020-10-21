@@ -107,3 +107,6 @@ let formattedCode = esformatter.format(meetingData);
 
 // write the address to a json file
 fs.writeFileSync('data/finalJSON/aaMeetings.json', formattedCode);
+
+console.log('*** *** *** *** ***');
+console.log(`Number of meetings: ${meetings.length}`);
