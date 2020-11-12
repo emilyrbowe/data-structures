@@ -17,6 +17,7 @@ Interested in previous work on data physicalization, the team decided to create 
 In the paper, the researchers reflected on seven key elements of the project: community experience, affective understanding, physical interaction with displays, performativity, the social experience, PAR in the project, and PAR for future methodologies challening existing power relationships (8-9).
 
 Images from the presentation and the paper:
+
 ![](img-1.png)
 ![](img-2.png)
 ![](img-3.png)
@@ -26,4 +27,5 @@ Images from the presentation and the paper:
 ![](img-7.png)
 
 Video from MIT Media Lab of the Chemicals in the Creek event:
+
 [![MIT: Visualizing environmental justice on the Chelsea Creek](http://img.youtube.com/vi/w_cnEK0Rpm4/0.jpg)](http://www.youtube.com/watch?v=w_cnEK0Rpm4 "MIT: Visualizing environmental justice on the Chelsea Creek")
