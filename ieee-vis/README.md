@@ -1,7 +1,10 @@
 ### IEEE Vis 2020 Paper Summary
 
-#### ["Chemicals in the Creek: designing a situated data physicalization of open government data with the community"](https://ieeevis.b-cdn.net/vis_2020/pdfs/f-info-1210.pdf)
+#### "Chemicals in the Creek: designing a situated data physicalization of open government data with the community"
+
 Authors: Laura Perovich, Sara Wylie, Roseann Bongiovanni
+
+[Paper Link](https://ieeevis.b-cdn.net/vis_2020/pdfs/f-info-1210.pdf) and [Conference Talk Video](https://www.youtube.com/watch?v=w_cnEK0Rpm4)
 
 This paper details the process used by researchers in Chelsea, Massachusetts to create a community-driven data visualization and physicalization process, based off of water permit violsations data from the US Environmental Protection Agency. After two years of work using participatory action research (PAR) methods, the team created the Chemicals in the Creek installation, which focused specifically on the water quality near oil storage facilities on Chelsea Creek.
 
@@ -21,3 +24,6 @@ Images from the presentation and the paper:
 ![](img-5.jpeg)
 ![](img-6.png)
 ![](img-7.png)
+
+Video from MIT Media Lab of the Chemicals in the Creek event:
+[![MIT: Visualizing environmental justice on the Chelsea Creek](http://img.youtube.com/vi/w_cnEK0Rpm4/0.jpg)](http://www.youtube.com/watch?v=w_cnEK0Rpm4 "MIT: Visualizing environmental justice on the Chelsea Creek")
