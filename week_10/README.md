@@ -7,7 +7,7 @@
 
 ![](FP1-Homepage-Today.png)
 
-![](FP1-Homepage-Tomomorrow.png)
+![](FP1-Homepage-Tomorrow.png)
 
 ### Final Project 2: Process Blog
 
