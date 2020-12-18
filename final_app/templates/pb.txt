@@ -25,7 +25,7 @@
 <div id="wrapper">
     <div id="sidebar">
       <div>This visualization is my form of accountability to make sure that I stay on track with my thesis writing process.</div>
-      
+
       <h4>Filter by Writing Type</h4>
       <div id="button-filter">
         <button class="btn" id="Memo">Memo</button>
@@ -34,15 +34,15 @@
         <button class="btn" id="Misc">Misc.</button>
       </div>
     </div>
-    
+
     <div id="myWriting">
     {{#each pbtext}}
-        <div id="" class="writing {{PK_category.S}}">
+        <div class="writing" onclick="showSidebar(this)">
           {{entry.S}}
         </div>
       {{/each}}
     </div>
-    <div id="viewer"></div>
+    <div id="viewer">Click on one of the documents to preview it here</div>
 </div>
 </body>
 </html>
