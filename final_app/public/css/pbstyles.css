@@ -56,3 +56,9 @@ header h2 {
     height: 220px;
     padding: 9px;
 }
+
+#viewer {
+    padding: 15px;
+    font-size: 14px;
+    margin: auto;
+}

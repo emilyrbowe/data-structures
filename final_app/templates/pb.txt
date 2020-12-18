@@ -28,17 +28,17 @@
       
       <h4>Filter by Writing Type</h4>
       <div id="button-filter">
-        <button class="btn" id="Memo" onclick="showCategory(this.id)">Memo</button>
-        <button class="btn" id="To Do List" onclick="showCategory(this.id)">To Do</button>
-        <button class="btn" id="Interview Notes" onclick="showCategory(this.id)">Interview Notes</button>
-        <button class="btn" id="Misc" onclick="showCategory(this.id)">Misc.</button>
+        <button class="btn" id="Memo">Memo</button>
+        <button class="btn" id="To Do List">To Do</button>
+        <button class="btn" id="Interview Notes" >Interview Notes</button>
+        <button class="btn" id="Misc">Misc.</button>
       </div>
     </div>
     
     <div id="myWriting">
     {{#each pbtext}}
-        <div id="" class="writing">
-          Notes go here: {{entry.S}}
+        <div id="" class="writing {{PK_category.S}}">
+          {{entry.S}}
         </div>
       {{/each}}
     </div>

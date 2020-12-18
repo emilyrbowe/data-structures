@@ -79,16 +79,6 @@ div #sidebar #controls {
   margin: 10px 15px;
 }
 
-/*div #sidebar #filters {*/
-/*  margin: 10px 0px;*/
-/*  display: grid;*/
-/*  grid-template-columns: 5fr 5fr;*/
-/*}*/
-
-input {
-  width: 80%;
-}
-
 div #sidebar #mtglist {
   margin-top: 20px;
   overflow-y: scroll;

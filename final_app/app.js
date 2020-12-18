@@ -32,21 +32,32 @@ app.get('/', function(req, res) {
 
 // respond to requests for /aa
 app.get('/aa', function(req, res) {
-    console.log(req.query.day);
+    var now = moment.tz(Date.now(), "America/New_York"); 
+    var dayy = now.day().toString();
+
+    // takes the string value (0, 1,..., 6) to get a day name from the array below
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var dayyName = days[dayy];
+    // console.log(dayyName);
+    var dayChoice = `\'${dayyName}\'`;
+    // console.log(dayChoice);
     
-    var days = `\'${req.query.selectedDays}\'`;
-    
-    if (req.query.q == null){
-        var now = moment.tz(Date.now(), "America/New_York"); 
-        var dayy = now.day().toString(); 
-    
-        // takes the string value (0, 1,..., 6) to get a day name from the array below
-        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        var dayyName = days[dayy];
-        
-        var selectedDay = dayyName;
-        console.log(selectedDay);
+    if (req.query.selectedDays != null) {
+        let dayString = '';
+        for (let i=0; i<req.query.selectedDays.length; i++){
+            if (i<req.query.selectedDays.length-2){
+                dayString += `\'${req.query.selectedDays[i]}\',`;
+            }
+            else if (i==req.query.selectedDays.length-1){
+                dayString += `\'${req.query.selectedDays[i]}\'`;
+            }
+        }
+        dayChoice = dayString;
+        // console.log(dayChoice);
+        // console.log((dayChoice.toString()));
     }
+    
+    var dayChoiceStr = `${dayChoice}`;
 
     // // Connect to the AWS RDS Postgres database
     const client = new Pool(db_credentials);
@@ -54,34 +65,34 @@ app.get('/aa', function(req, res) {
     // SQL query 
     var thisQuery = `SELECT mtglat, mtglng, json_agg(json_build_object('loc', mtgplace, 'address', mtgaddress, 'time', ((mtgstart AT TIME ZONE 'GMT') AT TIME ZONE 'EST' ), 'name', mtgname, 'day', mtgday, 'types', mtgtype)) as meetInfo
                 FROM aamtgs 
-                WHERE mtgday = '${selectedDay}'
+                WHERE mtgday IN (${dayChoiceStr})
                 GROUP BY mtglat, mtglng
                 ;`;
-                 
-    // var typeQuery = `SELECT mtgtype, COUNT(*) from aamtgs GROUP BY mtgtype ORDER BY mtgtype ASC`;
 
     client.connect();
     client.query(thisQuery, (qerr, qres) => {
         if (qerr) { throw qerr }
         
         else {
-            
             var data = qres.rows;
             data.forEach(function(row){
                 row.meetinfo.forEach(function(mtgRow){
-                    mtgRow.friendlyTime = moment(mtgRow.time, 'HH:mm:ss ZZ').format('LT')
+                    mtgRow.friendlyTime = moment(mtgRow.time, 'HH:mm:ss ZZ').format('LT');
                 });
             });
             // console.log(qres.rows);
-            var aaSend = aatemplate({
-                days: selectedDay,
-                meetings: qres.rows,
-                mtgdata: JSON.stringify(qres.rows), 
-                dbcreds: JSON.stringify(db_credentials.mapbox)
-                // mtgtype: JSON.stringify()
-            });
-            res.send(aaSend);
-            client.end();
+            if (req.query.selectedDays != null) {
+                res.send({meetings: qres.rows})
+            }
+            else {
+                var aaSend = aatemplate({
+                    meetings: qres.rows,
+                    mtgdata: JSON.stringify(qres.rows), 
+                    dbcreds: JSON.stringify(db_credentials.mapbox)
+                });
+                res.send(aaSend);
+                client.end();
+            }
             console.log('2) responded to request for aa meeting data');
         }
     });
@@ -117,9 +128,18 @@ app.get('/processblog', function(req, res) {
 
     // Connect to the AWS DynamoDB database
     var dynamodb = new AWS.DynamoDB();
-    var doctype = "Memo";
+    var doctype;
     
-    // if (req.params 
+    // console.log(req.query);
+    
+    if (req.query.thesisWriting != null) {
+        doctype = req.query.thesisWriting;
+        // console.log(req.query.thesisWriting);
+    }
+    else {
+        doctype = "Memo";
+    }
+    console.log(doctype);
 
     // DynamoDB (NoSQL) query
     var params = {
@@ -129,7 +149,7 @@ app.get('/processblog', function(req, res) {
             "#cat" : "PK_category"
         },
         ExpressionAttributeValues: { // the query values
-            ":categoryName" : {"S": doctype},
+            ":categoryName" : {"S": `${doctype}`},
         }
     };
 
@@ -139,11 +159,17 @@ app.get('/processblog', function(req, res) {
             throw (err);
         }
         else {
-            console.log(JSON.stringify(data.Items));
-            res.end(pbtemplate({ 
-                pbdata: JSON.stringify(data.Items),
-                pbtext: data.Items
-            }));
+            
+            if (req.query.thesisWriting != null) {
+                res.send({pbtext: data.Items})
+            }
+            else {
+                // console.log(JSON.stringify(data.Items));
+                res.end(pbtemplate({ 
+                    pbdata: JSON.stringify(data.Items),
+                    pbtext: data.Items
+                }));
+            }
             console.log('3) responded to request for process blog data');
         }
     });
