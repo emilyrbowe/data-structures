@@ -242,4 +242,4 @@ $('#meetingObjects').html(`${content}`);
 ```
 
 ### Clustering meeting markers
-I used a Leaflet plugin called [Leaflet Marker Cluster](https://github.com/Leaflet/Leaflet.markercluster) to allow the markers that were located on the same locations to cluster, rather than cover each other. s
+I used a Leaflet plugin called [Leaflet Marker Cluster](https://github.com/Leaflet/Leaflet.markercluster) to allow the markers that were located on the same locations to cluster, rather than cover each other.
