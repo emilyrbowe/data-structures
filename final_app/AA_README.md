@@ -15,10 +15,10 @@ Below is a screenshot of what a user would see when they land on the page. The c
 ![](writeup_media/aa_map_1.png)
 
 A user can then select other days, as seen in the GIF below. When a user selects another day, both the map and the sidebar showing the meeting details update.
-![](writeup_media/aa_map_days.GIF)
+![](https://github.com/emilyrbowe/data-structures/blob/master/final_app/writeup_media/aa_map_days.gif)
 
 A user can also interact with the pins on the screen to
-![](writeup_media/aa_map_popups.GIF)
+![](https://github.com/emilyrbowe/data-structures/blob/master/final_app/writeup_media/aa_map_popups.gif)
 
 
 ## Notes on Technical Functionality
