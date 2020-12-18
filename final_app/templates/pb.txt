@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The Making of a Thesis</title>
+  <meta name="description" content="The Making of a Thesis">
+  <meta name="author" content="Emily Bowe">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/pbstyles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/pb.js"></script>
+</head>
+
+<body>
+
+<script>
+</script>
+
+<header>
+<h2>The Making of a Thesis</h2>
+</header>
+
+<div id="wrapper">
+    <div id="sidebar">
+      <div>This visualization is my form of accountability to make sure that I stay on track with my thesis writing process.</div>
+      
+      <h4>Filter by Writing Type</h4>
+      <div id="button-filter">
+        <button class="btn" id="Memo" onclick="showCategory(this.id)">Memo</button>
+        <button class="btn" id="To Do List" onclick="showCategory(this.id)">To Do</button>
+        <button class="btn" id="Interview Notes" onclick="showCategory(this.id)">Interview Notes</button>
+        <button class="btn" id="Misc" onclick="showCategory(this.id)">Misc.</button>
+      </div>
+    </div>
+    
+    <div id="myWriting">
+    {{#each pbtext}}
+        <div id="" class="writing">
+          Notes go here: {{entry.S}}
+        </div>
+      {{/each}}
+    </div>
+    <div id="viewer"></div>
+</div>
+</body>
+</html>

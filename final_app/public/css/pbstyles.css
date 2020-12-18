@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+}
+
+header h2 {
+    margin: 20px;
+    color: #69A376;
+    text-transform: uppercase;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-rows: 1fr;
+    height: auto;
+}
+
+#sidebar {
+    height: 100%;
+    padding: 20px;
+}
+
+#button-filter {
+    display: grid;
+}
+
+#button-filter button {
+    margin: 5px 0px;
+    width: 150px;
+}
+
+#myWriting {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#viewer {
+    /*background-color: blue;*/
+    font-size: 10px;
+    font-color: red;
+}
+
+.writing {
+    padding: 10px;
+    width: 170px;
+    height: 220px;
+    border: 1px black solid;
+    font-size: 4px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.writing:hover {
+    border: 2px #69A376 solid;
+    width: 170px;
+    height: 220px;
+    padding: 9px;
+}

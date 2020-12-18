@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+
+  <title>Emily's Sensor Project</title>
+  <meta name="description" content="Emily's Sensor Project">
+  <meta name="author" content="Emily Bowe">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/sensorstyles.css?v=1.0">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <section id="one">
+  <div id="image">
+    <img src="assets/Building.png" alt="Drawing of New York apartment building">
+  </div>
+  <div id="title-section">
+    <h1>Temperature Adventures</h1>
+    <div id="tempplot"></div>
+  </div>
+  </section>
+  <script>
+  
+  //Time Series plot based on https://plotly.com/javascript/time-series/#time-series-with-rangeslider
+
+  var sensorData = {{{sensordata}}}; 
+  
+    Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
+  
+    function unpack(rows, key) {
+    return rows.map(function(row) { return row[key]; });
+    }
+  
+  
+  var temp = {
+    type: "scatter",
+    mode: "lines",
+    name: 'Temperature',
+    x: [],
+    y: [],
+      line: {color: '#17BECF'}
+    }
+  
+  for (let i=0; i<sensorData.length; i++){
+    temp.x.push(sensorData[i].sensordayhour);
+    temp.y.push(sensorData[i].avghourval);
+  }
+  
+  var data = [temp];
+  
+  var layout = {
+    title: 'Apartment Indoor Temperature',
+    xaxis: {
+    autorange: true,
+    range: ['2020-11-17', '2020-12-12'],
+    rangeselector: {buttons: [
+        {step: 'all'},
+        {
+          count: 7,
+          label: 'Week',
+          step: 'day',
+          stepmode: 'backward'
+        },
+        {
+          count: 1,
+          label: 'Day',
+          step: 'day',
+          stepmode: 'backward'
+        }
+      ]},
+    rangeslider: {range: ['2020-11-17', '2020-12-12']},
+    type: 'date'
+  },
+  yaxis: {
+    autorange: true,
+    range: [65, 90],
+    type: 'linear'
+  }
+  };
+  
+  Plotly.newPlot('tempplot', data, layout);
+  })
+  </script>
+</body>
+</html>

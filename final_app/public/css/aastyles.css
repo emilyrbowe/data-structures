@@ -1,0 +1,112 @@
+html {
+  font-family: 'Ubuntu';
+}
+
+body {
+  margin: 0px;
+}
+
+#mapwrapper {
+  display: grid;
+  grid-template-rows: 5vh 95vh;
+}
+
+#appbody {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+}
+
+#mapwrapper header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 8fr 6fr 2fr;
+}
+
+#mapwrapper header h3 {
+  margin-left: 20px;
+}
+
+#mapwrapper header button {
+  grid-column-start: 14;
+  grid-column-end: 16;
+  height: 20px;
+  margin: auto;
+  margin-right: 20px;
+  font-family: inherit;
+}
+
+#mapid {
+}
+
+div #sidebar {
+  align: center;
+  overflow: hidden;
+}
+
+div #sidebar #buttondays {
+  margin: 30px 15px;
+}
+
+div #buttondays > button.btn {
+  border-radius: 15px;
+  border: none;
+  color: white;
+  width: 50px;
+  /*padding: 15px 0px 0px 0px;*/
+  margin: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  outline: none;
+  padding: 6px 6px;
+  background-color: #999999;
+  cursor: pointer;
+}
+
+ /*Add a light grey background on mouse-over */
+div #buttondays > button.btn:hover {
+  background-color: #ddd; /* Green */
+}
+
+ /*Add a dark background to the active button */
+div #buttondays > button.btn.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+div #sidebar #controls {
+  margin: 10px 15px;
+}
+
+/*div #sidebar #filters {*/
+/*  margin: 10px 0px;*/
+/*  display: grid;*/
+/*  grid-template-columns: 5fr 5fr;*/
+/*}*/
+
+input {
+  width: 80%;
+}
+
+div #sidebar #mtglist {
+  margin-top: 20px;
+  overflow-y: scroll;
+  height: 85%;
+}
+
+div #sidebar #meetingObjects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+div #padding {
+  height: 200px;
+}
+.meetingcard {
+  border: solid 1px black;
+  box-shadow: 2px 2px 1px #888888;
+  margin: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
