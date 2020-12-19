@@ -4,7 +4,7 @@ In this project, the goal was to use a NoSQL database and write diary/blog style
 
 In Assignments [5](https://github.com/emilyrbowe/data-structures/tree/master/week_05) and [6](https://github.com/emilyrbowe/data-structures/tree/master/week_06) we worked to understand how to set up a NoSQL database and then how to write, read, and query data from this database.
 
-## [Video Walkthrough Link]()
+## [Video Walkthrough Link](https://drive.google.com/file/d/1qdYbuKQ8zeFBVIq6RM1y9eUFDQrwLxKx/view?usp=sharing)
 
 ## Notes on UX Design
 Initial (and somewhat aspirational) mockups were done for [Assignment 10](https://github.com/emilyrbowe/data-structures/tree/master/week_10). The final design is simpler, but much of the same functionality is there. The two design features were the ability to filter different kinds of writing using buttons on the side and being able to see tiles of the writing pieces that could be viewed larger in a sidebar.
@@ -133,7 +133,7 @@ The response value from the Express app is sent to the template as `pbtext` and 
   </div>
 {{/each}}
 ```
-This second code snippet is found at the end of the pb.js file as the response to the `$.get()` command communicating with the Express endpoint. The data is being returned and looped over to create each thumbnail in the gallery. 
+This second code snippet is found at the end of the pb.js file as the response to the `$.get()` command communicating with the Express endpoint. The data is being returned and looped over to create each thumbnail in the gallery.
 
 ``` javascript
 $.get('/processblog', parameters, function(data) {

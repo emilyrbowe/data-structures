@@ -3,8 +3,7 @@
 This project explored the use of a temperature sensor to write temperature and humidity data to a PostgreSQL database and then
 
 Initial work for the sensor setup and data processing was done in Assignment [8](https://github.com/emilyrbowe/data-structures/tree/master/week_08) and covered the writing of data to the database at 5 minute intervals.
-
-## [Video Walkthrough Link]()
+https://drive.google.com/file/d/1M6m44X9zBHjXQ4hiD_QrQHzN5OpXTNme/view?usp=sharing)
 
 ## Notes on UX Design
 An earlier mockup for this project was done in [Assignment 10](https://github.com/emilyrbowe/data-structures/tree/master/week_10). The ultimate design has been reduced to a single page, but the core of the temperature visualization is present.

@@ -6,7 +6,7 @@ In Assignments [1](https://github.com/emilyrbowe/data-structures/tree/master/wee
 
 This final assignment was a chance to take this SQL data and place it on a map to allow users to find an AA meeting.
 
-## [Video Walkthrough Link]()
+## [Video Walkthrough Link](https://drive.google.com/file/d/1mSljFh4yp1GVOGEKyvJTvvmQ7yL4s9rQ/view?usp=sharing)
 
 ## Notes on UX Design
 When initially thinking about the design of the project in [Assignment 10](https://github.com/emilyrbowe/data-structures/tree/master/week_10), I envisioned the site automatically detecting the day of the week and showing the user the meetings that were happening on that day. I also envisioned buttons that would allow a user to toggle the desired meeting days on and off.
