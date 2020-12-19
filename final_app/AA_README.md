@@ -2,7 +2,7 @@
 
 In this project, our goal was to take the data presented in archived webpages for Alcoholics Anonymous meetings in Manhattan and create a functioning webmap displaying the locations and details of the meetings. An example page of the original data can be see in web page linked [here](https://parsons.nyc/aa/m08.html).
 
-In Assignments [1](), [2](), [3](), [4](), [6](), and [7](), we processed this data by scraping it from HTML and transforming it into usable data that was stored in a PostgreSQL database.
+In Assignments [1](https://github.com/emilyrbowe/data-structures/tree/master/week_01), [2](https://github.com/emilyrbowe/data-structures/tree/master/week_02), [3](https://github.com/emilyrbowe/data-structures/tree/master/week_03), [4](https://github.com/emilyrbowe/data-structures/tree/master/week_04), [6](https://github.com/emilyrbowe/data-structures/tree/master/week_06), and [7](https://github.com/emilyrbowe/data-structures/tree/master/week_07), we processed this data by scraping it from HTML and transforming it into usable data that was stored in a PostgreSQL database.
 
 This final assignment was a chance to take this SQL data and place it on a map to allow users to find an AA meeting.
 
