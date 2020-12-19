@@ -16,7 +16,7 @@ Starter code for this assignment sort of consisted of starting with my final scr
 
 ### Part 1: Finishing scraping the data in `wa07-a-scrape.js`
 
-I started this assignment by reviewing the existing scraping I had done for Assignment 2. In that work, all I had really parsed was the "address" field, so I had a lot of addditional work to do to get the other values from the webpages. After studying the structure of the original webpages, I was able to write the following code which broke apart the information in each meeting div into individual values. 
+I started this assignment by reviewing the existing scraping I had done for Assignment 2. In that work, all I had really parsed was the "address" field, so I had a lot of addditional work to do to get the other values from the webpages. After studying the structure of the original webpages, I was able to write the following code which broke apart the information in each meeting div into individual values.
 
 ``` javascript
 // npm install cheerio
@@ -385,5 +385,3 @@ mtgstart     mtgplace                                                    mtgaddr
 ```
 
 ### Success! 👾
-
-## Final Reflections
