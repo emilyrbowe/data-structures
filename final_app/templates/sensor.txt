@@ -23,18 +23,18 @@
   </div>
   </section>
   <script>
-  
+
   //Time Series plot based on https://plotly.com/javascript/time-series/#time-series-with-rangeslider
 
-  var sensorData = {{{sensordata}}}; 
-  
-    Plotly.d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function(err, rows){
-  
+  var sensorData = {{{sensordata}}};
+
+    Plotly.d3.csv("", function(err, rows){
+
     function unpack(rows, key) {
     return rows.map(function(row) { return row[key]; });
     }
-  
-  
+
+
   var temp = {
     type: "scatter",
     mode: "lines",
@@ -43,14 +43,14 @@
     y: [],
       line: {color: '#17BECF'}
     }
-  
+
   for (let i=0; i<sensorData.length; i++){
     temp.x.push(sensorData[i].sensordayhour);
     temp.y.push(sensorData[i].avghourval);
   }
-  
+
   var data = [temp];
-  
+
   var layout = {
     title: 'Apartment Indoor Temperature',
     xaxis: {
@@ -80,7 +80,7 @@
     type: 'linear'
   }
   };
-  
+
   Plotly.newPlot('tempplot', data, layout);
   })
   </script>
